@@ -40,7 +40,11 @@
 
 ### `static getDerivedStateFromProps(props,state)`
 
-getDrivedStateFromProps() 함수는 정적함수다. 따라서 this.props나 this.state같은 방법으로 props, state 값에 접근 할 수 없다. 만약 값에 접근해야 하는 경우 반드시 인자로 전달된 props,state를 이용해야 한다. 이때 props는 상위컴포에서 전달된 값이며, state는 현재 컴포의 state값이다. **이 함수는 상위 컴포넌트에서 전달받은 props로 state값에 연동할때 주로 사용된다. 반환값으로 state를 변경**한다.
+- `NewCounter.js` 파일 확인
+- 기존값 state, 새 비교값 state 2개가 필요하다.
+- `return` 에 처리 방향을 지정한다.
+
+`getDrivedStateFromProps()` 함수는 정적함수다. 따라서 this.props나 this.state같은 방법으로 props, state 값에 접근 할 수 없다. 만약 값에 접근해야 하는 경우 반드시 인자로 전달된 props,state를 이용해야 한다. 이때 props는 상위컴포에서 전달된 값이며, state는 현재 컴포의 state값이다. **이 함수는 상위 컴포넌트에서 전달받은 props로 state값에 연동할때 주로 사용된다. 반환값으로 state를 변경**한다.
 
 ### `componentDidMount()`
 

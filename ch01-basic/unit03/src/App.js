@@ -10,6 +10,9 @@ import PropTypeChild from './props/PropTypeChild';
 import StateExample from './state/StateExample';
 import ForceUpdate from './state/ForceUpdate';
 import Lifecycle from './state/Lifecycle';
+import NewCounter from './state/NewCounter';
+// component
+import PureCompo from './component/PureCompo';
 
 function App() {
   return (
@@ -57,6 +60,8 @@ function App() {
         <StateExample></StateExample>
         <ForceUpdate></ForceUpdate>
         <Lifecycle></Lifecycle>
+        <NewCounter></NewCounter>
+        <PureCompo></PureCompo>
       </div>
     </div>
   );
