@@ -6,12 +6,11 @@ class StateExample extends React.Component {
     // state 정의
     this.state = {
       loading: true,
-      formData: 'no Data',
+      formData: '초기 상태값',
     };
     // 화살표함수없이 this를 사용한다면 .bind()필수사용해야 this가 가르키는 곳을 확실하게 할 수 있다.
     this.handleData = this.handleData.bind(this);
     // 4초뒤에 this.handleData 함수 실행
-    setTimeout(this.handleData, 4000);
   }
   handleData() {
     const data = 'new data';
@@ -23,13 +22,16 @@ class StateExample extends React.Component {
     });
     console.log('loading값', this.state.loading);
   }
+  componentDidMount() {
+    setTimeout(this.handleData, 4000);
+  }
 
   render() {
     return (
       <div>
         {/* state 데이터는 this.state로 접근 가능 */}
-        <span>로딩중 : {String(this.state.loading)}</span>
-        <spna>결과 : {this.state.formData}</spna>
+        <span>로딩중 : {String(this.state.loading)} | </span>
+        <span>결과 : {this.state.formData}</span>
       </div>
     );
   }

@@ -8,6 +8,11 @@ import PropTypeObj from './props/PropTypeObj';
 import PropTypeChild from './props/PropTypeChild';
 // State
 import StateExample from './state/StateExample';
+import ForceUpdate from './state/ForceUpdate';
+import Lifecycle from './state/Lifecycle';
+import NewCounter from './state/NewCounter';
+// component
+import PureCompo from './component/PureCompo';
 
 function App() {
   return (
@@ -22,7 +27,7 @@ function App() {
           numValue={33}
           arrayValue={[1, 2, 3]}
           objValue={{ name: 'kiwi' }}
-          nodeValue={<h1>노드란 태그군요</h1>}
+          nodeValue='<h1>노드란 태그군요</h1>'
           funcValue={() => {
             console.log('메세지');
           }}></PropsCompo2>
@@ -37,7 +42,7 @@ function App() {
         <PropTypeBool boolean={true}></PropTypeBool>
         <p>{'<PropTypeBool boolean></PropTypeBool>'}</p>
         <PropTypeBool boolean></PropTypeBool>
-        <PropTypeObj objValue></PropTypeObj>
+        <PropTypeObj objValue={{ name: 'name', age: 33 }}></PropTypeObj>
         <PropTypeDefault></PropTypeDefault>
         <PropTypeChild>
           <h2 style={{ color: 'greenyellow', backgroundColor: '#999' }}>
@@ -53,6 +58,10 @@ function App() {
           margin: '3px',
         }}>
         <StateExample></StateExample>
+        <ForceUpdate></ForceUpdate>
+        <Lifecycle></Lifecycle>
+        <NewCounter></NewCounter>
+        <PureCompo></PureCompo>
       </div>
     </div>
   );

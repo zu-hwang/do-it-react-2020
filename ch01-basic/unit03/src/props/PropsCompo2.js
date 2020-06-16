@@ -12,7 +12,7 @@ class PropsCompo2 extends React.Component {
       funcValue,
     } = this.props;
     return (
-      <div>
+      <>
         <p style={{ display: boolValue ? 'block' : 'none' }}>
           불리언 : 참이라서 지금 보여, false면 안보여
         </p>
@@ -20,8 +20,8 @@ class PropsCompo2 extends React.Component {
         <p>배열의 index 길이는? : {arrayValue.length}</p>
         <p>객체 name인 속성값 : {objValue.name}</p>
         <p>노드 추가여 : {nodeValue}</p>
-        <p>함수, 콘솔로그 출력 콘솔 확인하기 ! {funcValue}</p>
-      </div>
+        <p onClick={funcValue}>함수, 콘솔로그 출력 콘솔 확인하기 !</p>
+      </>
     );
   }
 }
