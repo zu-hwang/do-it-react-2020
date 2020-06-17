@@ -12,6 +12,7 @@
     "shallow-equal": "^1.2.1"
   },
   "scripts": {
+    "storybook" : "start-storybook -p 9009",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
