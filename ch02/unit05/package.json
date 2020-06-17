@@ -1,5 +1,5 @@
 {
-  "name": "unit03",
+  "name": "unit05",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,11 +9,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "recompose": "^0.30.0",
-    "shallow-equal": "^1.2.1"
+    "recompose": "^0.30.0"
   },
   "scripts": {
-    "storybook": "start-storybook -p 9009",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -33,9 +31,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "babel-loader": "^8.1.0"
   }
 }

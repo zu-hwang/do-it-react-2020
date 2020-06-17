@@ -40,7 +40,9 @@ export default class RefScrollSpy extends React.Component {
   render() {
     return (
       <>
-        <div ref={this.setRef}>??</div>
+        <div style={this.props.style} ref={this.setRef}>
+          ??
+        </div>
       </>
     );
   }

@@ -12,6 +12,7 @@ export default class Compo extends React.Component {
           width: '50%',
           margin: '3px',
         }}>
+        <h1>03. component</h1>
         <MapCompo data={data} />
         <FilterCompo data={data} />
       </div>

@@ -14,6 +14,7 @@ export class States extends React.Component {
           width: '50%',
           margin: '3px',
         }}>
+        <h1>02. State</h1>
         <StateExample></StateExample>
         <ForceUpdate></ForceUpdate>
         <Lifecycle></Lifecycle>

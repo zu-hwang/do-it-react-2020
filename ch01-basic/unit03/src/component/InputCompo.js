@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PTypes from 'prop-types';
 
-export default class InputCompo extends React.Component {
+export default class InputCompo extends PureComponent {
   handleChange = (e) => {
     const { name, onChange } = this.props;
     if (onChange) {
