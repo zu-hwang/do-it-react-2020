@@ -150,10 +150,22 @@ const composeB2 = addX(4)(multiplyX(3)(addX(5)(multiplyX(2))));
 
 ### recompose 라이브러리
 
-HOC 라이브러리 사용하기! recompose라이브러리는 몇가지 유용한 HOC 기능을 사용해보쟝.a1
+HOC 라이브러리 사용하기! recompose라이브러리는 몇가지 유용한 HOC 기능을 사용해보쟝. 하지만 **recompose의 모든 함수를 임포트하면 프로젝트가 무거워짐으로 필요한 함수만 추출하여 임포트 하는 것이 효율적**이다.
+
+- branch
+- withState : `this.state`, `this.setState()` 없이도 withState로 state를 변경 할 수 있다.
+
+```js
+//!  비효율 적인 임포팅 방식
+import { branch, withState } from 'recompose';
+
+//! 효율적인 임포팅 방식
+import branch from 'recompose/branch';
+import withState from 'recompose/withState';
+```
 
 - 설치 : `yarn add recompose`
--
+- 예제코드 : `src/component/hoc/recompose.js`
 
 ### 상속
 
