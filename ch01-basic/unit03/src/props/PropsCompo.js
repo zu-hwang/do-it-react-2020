@@ -3,7 +3,7 @@ import PTypes from 'prop-types';
 
 class PropsCompo extends React.Component {
   render() {
-    return <h1>{this.props.name}</h1>;
+    return <h2>{this.props.name}</h2>;
   }
 }
 

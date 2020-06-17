@@ -7,9 +7,9 @@ class PropTypeBool extends React.Component {
     return (
       <>
         {this.props.boolean ? (
-          <h1 style={{ color: 'red' }}>참이군</h1>
+          <h3 style={{ color: 'red' }}>참이군</h3>
         ) : (
-          <h1 style={{ color: 'blue' }}>거짓이군</h1>
+          <h3 style={{ color: 'blue' }}>거짓이군</h3>
         )}
       </>
     );

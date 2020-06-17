@@ -12,6 +12,7 @@ export class Props extends React.Component {
     return (
       <div style={{ border: 'solid black 5px', width: '50%', margin: '3px' }}>
         {/* 여기는 props */}
+        <h1>01. Props</h1>
         <PropsCompo name='프로퍼티 예제'></PropsCompo>
         <PropsCompo2
           boolValue={true}
@@ -23,12 +24,12 @@ export class Props extends React.Component {
             console.log('메세지');
           }}></PropsCompo2>
         {/* 불린 타입일 경우 아래와 같이 값을 주지 않고 사용할 수 있다 */}
-        <h1>불린일 경우 아래 방식 2가지는 거짓으로 표현된다</h1>
+        <h3>불린일 경우 아래 방식 2가지는 거짓으로 표현된다</h3>
         <p>{'<PropTypeBool boolean={false}></PropTypeBool>'}</p>
         <PropTypeBool boolean={false}></PropTypeBool>
         <p>{'<PropTypeBool></PropTypeBool>'}</p>
         <PropTypeBool></PropTypeBool>
-        <h1>불린일 경우 아래 방식 2가지는 참으로 표현된다</h1>
+        <h3>불린일 경우 아래 방식 2가지는 참으로 표현된다</h3>
         <p>{'<PropTypeBool boolean={true}></PropTypeBool>'}</p>
         <PropTypeBool boolean={true}></PropTypeBool>
         <p>{'<PropTypeBool boolean></PropTypeBool>'}</p>
