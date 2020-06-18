@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PTypes from 'prop-types';
 import withStyles, { css } from './withStyles';
 
-class Button extends PureComponent {
+export class Button extends PureComponent {
   render() {
     const {
       children,

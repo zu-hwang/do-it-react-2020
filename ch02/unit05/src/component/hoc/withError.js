@@ -1,21 +1,25 @@
 import React from 'react';
-import withStyles, { css } from './withStyles';
+import withStyles, {
+  css,
+} from '../../../../../ch01-basic/unit04/src/components/withStyles'; // 뒤로가기 지옥!..
 
 export default function (defaultMsg) {
-  return (WrappedCompo) => {
-    const { displayName, name: componentName } = WrappedCompo;
-    const WrappedCompoName = displayName || componentName;
+  return (WrappedCompont) => {
+    const { displayName, name: componentName } = WrappedCompont;
+    const WrappedCompontName = displayName || componentName;
 
     function ComponentWithError({ hasError, errorMsg, styles, ...props }) {
-      <>
-        <WrappedCompo {...props} />
-        {hasError && <div {...css(styles.error)}>{errorMsg}</div>}
-      </>;
+      return (
+        <>
+          <WrappedCompont {...props}></WrappedCompont>
+          {hasError && <div {...css(styles.error)}>{errorMsg}</div>}
+        </>
+      );
     }
     ComponentWithError.defaultProps = {
       errorMsg: defaultMsg,
     };
-    ComponentWithError.displayName = `withError(${WrappedCompoName})`;
+    ComponentWithError.displayName = `withError(${WrappedCompontName})`;
     return withStyles(({ color }) => ({
       error: {
         color: color.error,

@@ -169,6 +169,7 @@ import withState from 'recompose/withState';
 
 ### 상속
 
+예제없음
 **상속 패턴의 단점**
 
 - 원치 않는 모든 내용을 상속받게 된다.
@@ -177,4 +178,5 @@ import withState from 'recompose/withState';
 
 ### 데코레이터
 
+예제없음
 상속의 문제점을 보환한, **기존의 구조를 해치지 않고 원하는 구조만 상속받는 방법**
