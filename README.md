@@ -4,7 +4,7 @@
 
 ---
 
-## ch01 - 리액트 시작하기
+## chapter 1 - 리액트 시작하기
 
 ### unit 01.
 
@@ -25,3 +25,21 @@
 ### unit 03. Components
 
 - jsx
+- component import
+
+### unit 04. 
+- 반응형 스타일 구현
+
+## chapter 2 
+### unit 05.
+- HOC(하이어 오더 컴포넌트)
+- 커링과 조합
+- compose() 함수구현
+- 상속 & 데코레이터 데충 스치기
+
+### unit 06
+리액트 데이터 관리
+- context API
+- 리덕스
+
+
