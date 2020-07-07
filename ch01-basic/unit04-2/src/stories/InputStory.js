@@ -6,6 +6,10 @@ import { action } from '@storybook/addon-actions';
 
 // 컴포넌트 추가
 import Input from '../components/Input'; // 추가할 컴포넌트 가져오기
+import InputWithStyle from '../components/InputWithStyle'; // 추가할 컴포넌트 가져오기
+
+// 적용할 스타일 추가
+// import '../sass/materialize.scss';
 
 /**
  * !여기에 등록되는 것들은 스토리북 좌측메뉴 목록에 나타난다
@@ -24,10 +28,18 @@ import Input from '../components/Input'; // 추가할 컴포넌트 가져오기
 //    + 블랙모드
 
 storiesOf('Input', module)
+  .addWithJSX('sass적용', () => (
+    <InputWithStyle
+      id='sass-input'
+      value='sass!!??'
+      name='sass-input'
+      label='sass적용'
+      type='text'
+      errorMessage='이름을 입력하세요'
+    />
+  ))
   .addWithJSX('기본인풋', () => <Input value='기본인풋' />)
   .addWithJSX('블랙모드', () => <Input value='블랙모드' color='dark' />)
   .addWithJSX('onChange예제', () => (
-    <Input
-      onChange={action('이벤트 반응!', (e) => console.log(e.target.value))}
-    />
+    <Input onChange={action('이벤트 반응!')} />
   ));
