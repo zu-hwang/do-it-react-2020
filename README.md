@@ -32,7 +32,9 @@ Do it! 실리콘밸리 개발방법으로 배우는 리액트 프로그래밍 �
 ### unit 04-2
 
 - storybook
-- material
+- material.ui
+- sass/scss
+- 에어비엔비 css-in-js 라이브러리는 사용안함!
 
 ## chapter 2
 
@@ -49,3 +51,7 @@ Do it! 실리콘밸리 개발방법으로 배우는 리액트 프로그래밍 �
 
 - context API
 - 리덕스
+
+
+### unit 07
+- 검색기능 만들면서 리덕스 복습
