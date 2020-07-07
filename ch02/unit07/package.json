@@ -1,23 +1,18 @@
 {
-  "name": "unit04",
+  "name": "unit07",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "aphrodite": "^2.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
-    "react-with-styles": "^4.1.0",
-    "react-with-styles-interface-aphrodite": "^6.0.1"
-  },
-  "devDependencies": {
-    "@storybook/react": "^5.3.19"
+    "redux": "^4.0.5"
   },
   "scripts": {
-    "story": "start-storybook -p 9001 -c .storybook",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,5 +32,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "remote-redux-devtools": "^0.5.16"
   }
 }
