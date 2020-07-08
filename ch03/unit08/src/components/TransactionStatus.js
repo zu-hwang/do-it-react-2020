@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SearchContainer from './SearchContainer';
+import ResultListBox from './ResultListBox';
 
 const TransactionStatus = () => {
   return (
@@ -9,7 +10,9 @@ const TransactionStatus = () => {
       <InnerContainer>
         <SearchContainer></SearchContainer>
       </InnerContainer>
-      <InnerContainer></InnerContainer>
+      <InnerContainer>
+        <ResultListBox></ResultListBox>
+      </InnerContainer>
     </Container>
   );
 };
@@ -18,11 +21,11 @@ const Container = styled.div`
   width: 100%;
   margin-top: 20px;
   color: ${(props) => props.theme.black};
-  border: 1px solid ${(props) => props.theme.middleGray};
+  /* border: 1px solid ${(props) => props.theme.middleGray}; */
 `;
 const H2 = styled.h2`
   font-size: 20px;
-  font-weight: 900;
+  font-weight: bold;
   padding: 20px;
 `;
 
@@ -31,6 +34,9 @@ const InnerContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: flex-start;
+  &:last-child {
+    padding-top: 10px;
+  }
 `;
 
 export default TransactionStatus;

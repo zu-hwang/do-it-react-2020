@@ -71,15 +71,18 @@ const SearchContainer = () => {
     </Container>
   );
 };
+
 const Container = styled.div`
   ${flexCenter}
-  width: 1000px;
+  width: 100%;
+  background-color: ${(props) => props.theme.white};
 `;
 
 const Center = styled.div`
   display: flex;
+  border-radius: 2px;
   align-items: center;
-  width: 1000px;
+  width: 100%;
   border: 1px solid ${(props) => props.theme.middleGray};
   padding-top: 8px;
 `;
@@ -87,8 +90,8 @@ const Center = styled.div`
 const H4 = styled.div`
   display: flex;
   font-size: 18px;
-  font-weight: 700;
-  margin: 30px 20px;
+  font-weight: bold;
+  margin: 30px;
 `;
 const FormUnitBox = styled.div`
   position: relative;
@@ -97,9 +100,9 @@ const FormUnitBox = styled.div`
   padding-right: 6px;
 `;
 const Input = styled.input`
-  border: 1px solid ${(props) => props.theme.darkGray};
+  border: 1px solid ${(props) => props.theme.middleGray};
   border-radius: 2px;
-  padding: 5px;
+  padding: 10px;
   width: 170px;
   &::placeholder {
     font-size: 12px;

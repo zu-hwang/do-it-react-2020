@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import CoinBox from './CoinBox';
 
 const coinList = [
-  { id: 1, title: '비트코인', price: 4216000, PriceUnit: '원' },
-  { id: 2, title: '이더리움', price: 216000, PriceUnit: '원' },
-  { id: 3, title: '주주코인', price: 382400, PriceUnit: '원' },
-  { id: 4, title: '미미코인', price: 98829, PriceUnit: '원' },
+  { id: 1, title: '비트코인', price: 4216000, priceUnit: '원' },
+  { id: 2, title: '이더리움', price: 216000, priceUnit: '원' },
+  { id: 3, title: '주주코인', price: 382400, priceUnit: '원' },
+  { id: 4, title: '미미코인', price: 98829, priceUnit: '원' },
   // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
   // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
   // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
@@ -36,12 +36,12 @@ const CoinInfoBox = () => {
 const Container = styled.div`
   width: 100%;
   margin-top: 20px;
-  border: 1px solid ${(props) => props.theme.middleGray};
+  /* border: 1px solid ${(props) => props.theme.middleGray}; */
 `;
 const H2 = styled.h2`
   color: ${(props) => props.theme.black};
   font-size: 20px;
-  font-weight: 900;
+  font-weight: bold;
   padding: 20px;
 `;
 
