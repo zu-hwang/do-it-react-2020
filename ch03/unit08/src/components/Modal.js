@@ -1,35 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { flexCenter, mainFont, depth3 } from '../util/theme';
 import LabelInput from './LabelInput';
 import BasicBtn from '../components/BasicBtn';
 
 const Modal = (props) => {
-  const { title, mode, price, quantity, onChangeQuantity } = props;
+  const { name, mode, price } = props;
+  const [quantityValue, setQuantityValue] = useState(1);
+  const [quantityError, setQuantityError] = useState(false);
+  const checkTitle = () => {
+    if (mode === '') return 'loading...';
+    if (mode === '구매') return name + ' 구매';
+    if (mode === '판매') return name + ' 판매';
+    if (mode === '로그인') return mode;
+    if (mode === '회원가입') return mode;
+  };
+  const isTrade = () => {
+    if (mode === '구매' || mode === '판매') return true;
+    if (mode === '로그인' || mode === '회원가입') return false;
+    if (mode === '') return false;
+  };
+
+  const onChange = (e) => {
+    const value = Number(e.target.value);
+    if (String(value) === 'NaN') {
+      setQuantityError(true);
+      return setQuantityValue(1);
+    }
+    if (typeof value === 'number') return setQuantityValue(value);
+  };
   return (
     <FullScreen>
+      ㅁ
       <Container>
-        <H1>
-          {title || '비트코인'} {mode || '구매'}
-        </H1>
+        <H1>{checkTitle()}</H1>
         <Box>
-          <LabelInput
-            name={'금액'}
-            id={'modal-price-input'}
-            type='text'
-            value={price || (1245567).toLocaleString()}
-            readOnly={true}
-          />
-          <LabelInput
-            name={'수량'}
-            id={'modal-quantity-input'}
-            type='text'
-            value={quantity || 1}
-            onChange={onChangeQuantity}
-          />
+          {isTrade() ? (
+            <>
+              <LabelInput
+                name={'금액'}
+                id={'modal-price-input'}
+                type='text'
+                value={price || (1245567).toLocaleString()}
+                readOnly={true}
+              />
+              <LabelInput
+                name={'수량'}
+                id={'modal-quantity-input'}
+                type='text'
+                value={quantityValue}
+                onChange={onChange}
+              />
+            </>
+          ) : (
+            '???'
+          )}
         </Box>
         <ButtonBox>
-          <BasicBtn name='구매' color='point' onClick={null} />
+          <BasicBtn name={mode} color='point' onClick={null} />
           <BasicBtn name='취소' onClick={null} />
         </ButtonBox>
       </Container>

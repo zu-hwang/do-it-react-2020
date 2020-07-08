@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import BasicBtn from './BasicBtn';
 import { flexCenter } from '../util/theme';
 
-const SearchContainer = () => {
+const SearchContainer = ({ ids, entites }) => {
   const [selectMenu, setSelectMenu] = useState(false);
   const [selectInputValue, setSelectInputValue] = useState('');
   const selectMenuRef = useRef(null);
@@ -43,18 +44,15 @@ const SearchContainer = () => {
           />
           <SelectMenu dropMenu={selectMenu}>
             <div>
-              <p onClick={handleClick}>비트코인</p>
-              <p onClick={handleClick}>이더리움</p>
-              <p onClick={handleClick}>주주코인</p>
-              <p onClick={handleClick}>미미코인</p>
-              <p onClick={handleClick}>비트코인</p>
-              <p onClick={handleClick}>이더리움</p>
-              <p onClick={handleClick}>주주코인</p>
-              <p onClick={handleClick}>미미코인</p>
-              <p onClick={handleClick}>비트코인</p>
-              <p onClick={handleClick}>이더리움</p>
-              <p onClick={handleClick}>주주코인</p>
-              <p onClick={handleClick}>미미코인</p>
+              {ids !== [] &&
+                ids.map((id) => {
+                  const { code, name } = entites[id];
+                  return (
+                    <p key={`${id}-code-name`} onClick={handleClick}>
+                      {code} ({name})
+                    </p>
+                  );
+                })}
             </div>
           </SelectMenu>
         </FormUnitBox>
@@ -100,6 +98,7 @@ const FormUnitBox = styled.div`
   padding-right: 6px;
 `;
 const Input = styled.input`
+  color: ${(props) => props.theme.black};
   border: 1px solid ${(props) => props.theme.middleGray};
   border-radius: 2px;
   padding: 10px;
@@ -109,23 +108,31 @@ const Input = styled.input`
   }
 `;
 const SelectMenu = styled.div`
+  box-sizing: border-box;
   display: ${(props) => (props.dropMenu ? 'block' : 'none')};
   position: absolute;
   background-color: ${(props) => props.theme.white};
-  border: 1px solid ${(props) => props.theme.darkGray};
+  border: 1px solid ${(props) => props.theme.middleGray};
   top: 30px;
-  padding: 20px;
+  /* padding: 20px 0 20px 20px; */
   border-radius: 2px;
-  width: 140px;
-  height: 105px;
+  width: 192px;
+  height: 130px;
+  overflow: hidden;
   div {
+    width: 100%;
+    height: 100%;
     overflow: scroll;
-    width: 140px;
-    height: 105px;
+    padding: 10px 0px 10px 10px;
+
     p {
-      padding: 5px 0;
+      font-size: 12px;
+      padding: 8px 0;
       color: ${(props) => props.theme.black};
       transition: 0.2s color;
+      &:last-child {
+        padding-bottom: 27px;
+      }
     }
     p:hover {
       cursor: default;
@@ -142,5 +149,11 @@ const Label = styled.label`
     color: ${(props) => props.theme.darkGray};
   }
 `;
-
-export default SearchContainer;
+const mapStateToProps = (state, props) => {
+  const { ids, entites } = state;
+  return {
+    ids,
+    entites,
+  };
+};
+export default connect(mapStateToProps)(SearchContainer);

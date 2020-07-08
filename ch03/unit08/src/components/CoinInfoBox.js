@@ -2,33 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import CoinBox from './CoinBox';
 
-const coinList = [
-  { id: 1, title: '비트코인', price: 4216000, priceUnit: '원' },
-  { id: 2, title: '이더리움', price: 216000, priceUnit: '원' },
-  { id: 3, title: '주주코인', price: 382400, priceUnit: '원' },
-  { id: 4, title: '미미코인', price: 98829, priceUnit: '원' },
-  // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
-  // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
-  // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
-  // { id: 2, title: '주주코인', price: 382400, PriceUnit: '원' },
-];
-const CoinInfoBox = () => {
+const CoinInfoBox = ({ ids, entites }) => {
   return (
     <Container>
       <H2>코인동향</H2>
-      {/* 코인종류 컴포넌트 */}
       <InnerContainer>
-        {coinList.map((li) => {
-          return (
-            <CoinBox
-              key={`${li.id}-coin-box`}
-              id={li.id}
-              title={li.title}
-              price={li.price}
-              priceUnit={li.priceUnit}
-            />
-          );
-        })}
+        {ids &&
+          ids
+            .filter((id, idx) => idx < 4)
+            .map((id) => {
+              const { name, currentPrice } = entites[id];
+              return (
+                <CoinBox
+                  key={`${id}-coin-box`}
+                  id={id}
+                  name={name}
+                  currentPrice={currentPrice}
+                />
+              );
+            })}
       </InnerContainer>
     </Container>
   );

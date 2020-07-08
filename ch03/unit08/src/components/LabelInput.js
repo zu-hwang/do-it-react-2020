@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexCenter, mainFont, depth3 } from '../util/theme';
 
-const LabelInput = ({ id, name, value, onChange, readOnly }) => {
+const LabelInput = ({ id, name, value, onChange, readOnly, error }) => {
   return (
     <FormUnitBox>
       <Label htmlFor={id}>{name}</Label>

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import BasicBtn from '../components/BasicBtn';
 import { flexCenter } from '../util/theme';
 
-const CoinBox = ({ id, title, price, priceUnit }) => {
+const CoinBox = ({ id, name, currentPrice }) => {
   return (
-    <Container id={`${id}-${title}-priceUnit`}>
-      <H3>{title}</H3>
-      <Price>{price.toLocaleString() + priceUnit}</Price>
+    <Container id={`${id}-${name}-priceUnit`}>
+      <H3>{name}</H3>
+      <Price>{currentPrice.toLocaleString() + '원'}</Price>
       <ButtonBox>
         <BasicBtn name='매도' color='point' />
         <BasicBtn name='매수' />

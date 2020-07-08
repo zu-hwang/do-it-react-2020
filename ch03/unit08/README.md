@@ -10,6 +10,9 @@
     - [1) 공용 컴포넌트 제작](#1-공용-컴포넌트-제작)
     - [2) withStyle 하이어오더 컴포넌트 제작](#2-withstyle-하이어오더-컴포넌트-제작)
     - [3) 전체 스타일 파일 작성: reset.css](#3-전체-스타일-파일-작성-resetcss)
+    - [4) axios 사용하기](#4-axios-사용하기)
+      - [`axios.get(URL, config)`](#axiosgeturl-config)
+      - [`axios.create()`](#axioscreate)
 
 # 가상 - 코인거래 사이트 만들기
 
@@ -77,3 +80,66 @@
 ### 3) 전체 스타일 파일 작성: reset.css
 
 styled-components : Globalstyle 작성하기
+
+### 4) axios 사용하기
+
+#### `axios.get(URL, config)`
+
+`npm i axios`
+
+```js
+import axios from 'axios';
+
+// get
+axios
+  .get(`${SERVER_URL}/transactions`)
+  .then((res) => res.data)
+  .catch((error) => console.log(error));
+
+// get+params
+// code항목이 'BTX'인 가저온다.
+// 배열에 포함하는 것들 전부 가져온다!
+axios
+  .get(`${SERVER_URL}/transactions`, { params: { code: ['BTX'] } })
+  .then((res) => res.data)
+  .catch((error) => console.log(error));
+```
+
+`axios.get(URL,config)`
+**config에 올수 있는 것**
+
+```js
+{
+  // 기본호스트주소
+  baseURL : 'http://domain.com/api'
+  // 해더정보 : {다양한 것들! 아래는 예제}
+  headers : {'X-Requested-With':'XMLHttpRequest'}
+  // 파라미터 정보
+  params : { id:1234, name:'test'}
+  // 전달되는 데이터의 형태 (기본json)
+  responseType:'json'
+}
+```
+
+#### `axios.create()`
+
+axios에서는 자주사용하는 API 등록해둘수 있도록 `create()`함수를 제공한다.
+
+- api.js 파일 생성
+  ```js
+  import axios from 'axios';
+  const API = axois.create({
+    baseURL: 'http://localhost:4000',
+  });
+  ```
+- 서버요청할 곳에서 활용하기
+  ```js
+  import API from '../util/api'
+  ...
+  componentDidMount(){
+    API // 엔드포인트만 바로 넣어 요청할 수 있다.
+      .get('/endpoints',{params:{id, name}})
+      .then(res=>res.data)
+      .catch(error=>console.log(error))
+  }
+  ```
