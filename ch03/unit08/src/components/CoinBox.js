@@ -7,7 +7,7 @@ const CoinBox = ({ id, title, price, priceUnit }) => {
   return (
     <Container id={`${id}-${title}-priceUnit`}>
       <H3>{title}</H3>
-      <Price priceUnit>{price.toLocaleString()}</Price>
+      <Price>{price.toLocaleString() + priceUnit}</Price>
       <ButtonBox>
         <BasicBtn name='매도' color='point' />
         <BasicBtn name='매수' />
@@ -18,11 +18,12 @@ const CoinBox = ({ id, title, price, priceUnit }) => {
 
 const Container = styled.div`
   border: 1px solid ${(props) => props.theme.middleGray};
-  background-color: ${(props) => props.theme.lightGray};
+  background-color: ${(props) => props.theme.white};
+  border-radius: 2px;
   color: ${(props) => props.theme.black};
   padding: 40px;
   /* margin-bottom: 10px; */
-  width: 16%;
+  width: 16.5%;
 `;
 
 const H3 = styled.h3`
@@ -34,7 +35,7 @@ const H3 = styled.h3`
 
 const Price = styled.span`
   display: inline-block;
-  font-weight: lighter;
+  font-weight: 300;
   color: ${(props) => props.theme.darkGray};
 `;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexCenter } from '../util/theme';
+import { flexCenter, mainFont } from '../util/theme';
 
 const GBN = (props) => {
   return (
@@ -19,18 +19,19 @@ const GBN = (props) => {
 const GBNContainer = styled.div`
   width: 100%;
   ${flexCenter};
-  background-color: ${(props) => props.theme.lightGray};
-  border: 1px solid ${(props) => props.theme.middleGray};
+  ${mainFont};
+  background-color: ${(props) => props.theme.white};
+  border-bottom: 1px solid ${(props) => props.theme.middleGray};
 `;
 const Center = styled.div`
   display: flex;
   justify-content: space-between;
   width: 1000px;
 `;
-const HomeButton = styled.span`
+const HomeButton = styled.h1`
   padding: 20px 0;
   font-size: 25px;
-  font-weight: 900;
+  font-weight: 400;
   color: ${(props) => props.theme.point};
   transition: 0.2s all;
   &:hover {
@@ -41,20 +42,21 @@ const HomeButton = styled.span`
 `;
 const AccountContainer = styled.div`
   display: flex;
-  padding: 20px 0;
+  padding: 15px 0;
   color: ${(props) => props.theme.black};
 `;
 const AccountButton = styled.span`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  font-size: 12px;
+  ${flexCenter}
+  /* font-weight: 400; */
+  font-size: 14px;
+  border-bottom: 2px solid ${(props) => props.theme.white};
   &:last-child {
-    padding-left: 20px;
+    margin-left: 20px;
   }
   &:hover {
     cursor: pointer;
     color: ${(props) => props.theme.point};
+    border-bottom: 1px solid ${(props) => props.theme.point};
   }
 `;
 

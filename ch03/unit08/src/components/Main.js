@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexCenter } from '../util/theme';
+import { flexCenter, mainFont } from '../util/theme';
 import CoinInfoBox from '../components/CoinInfoBox';
 import TransactionStatus from '../components/TransactionStatus';
 
@@ -16,6 +16,7 @@ const Main = () => {
 };
 const Container = styled.div`
   ${flexCenter}
+  ${mainFont}
   width: 1000px;
 `;
 

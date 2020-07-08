@@ -1,10 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import { mainFont } from './theme';
 
 const GlobalStyles = createGlobalStyle`
   ${reset};
-  * {
-    box-sizing:content-box;
+  body {
+    box-sizing:border-box;
+    ${mainFont}
   }
 `;
 export default GlobalStyles;
