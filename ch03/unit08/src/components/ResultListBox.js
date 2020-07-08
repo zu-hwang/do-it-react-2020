@@ -1,37 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-const ResultListBox = () => {
-  const resultData = [
-    {
-      id: 1,
-      title: '비트코인',
-      nowPrice: 4216000,
-      price: 4216000,
-      dateTime: '2019-11 T04:34:50+00:00',
-    },
-    {
-      id: 2,
-      title: '이더리움',
-      nowPrice: 216000,
-      price: 216000,
-      dateTime: '2019-11 T04:34:50+00:00',
-    },
-    {
-      id: 3,
-      title: '주주코인',
-      nowPrice: 382400,
-      price: 382400,
-      dateTime: '2019-11 T04:34:50+00:00',
-    },
-    {
-      id: 4,
-      title: '미미코인',
-      nowPrice: 98829,
-      price: 98829,
-      dateTime: '2019-11 T04:34:50+00:00',
-    },
-  ];
+const ResultListBox = ({ ids, entites }) => {
   return (
     <Container>
       <table>
@@ -44,16 +15,27 @@ const ResultListBox = () => {
           </tr>
         </TableHeader>
         <TableBody>
-          {resultData.map((li) => {
-            return (
-              <Row key={`${li.id}-search-result`}>
-                <td>{li.title}</td>
-                <td>{li.price.toLocaleString()}</td>
-                <td>{li.nowPrice.toLocaleString()}</td>
-                <td>{li.dateTime}</td>
-              </Row>
-            );
-          })}
+          {ids === []
+            ? null
+            : ids.map((id) => {
+                const {
+                  name,
+                  currentPrice,
+                  totalPrice,
+                  datetime,
+                  code,
+                } = entites[id];
+                return (
+                  <Row key={`${id}-search-result`}>
+                    <td>
+                      {name} ({code})
+                    </td>
+                    <td>{(totalPrice * 1000000).toLocaleString()}</td>
+                    <td>{currentPrice.toLocaleString()}</td>
+                    <td>{datetime}</td>
+                  </Row>
+                );
+              })}
         </TableBody>
       </table>
     </Container>
@@ -68,6 +50,7 @@ const Container = styled.div`
   border: 1px solid ${(props) => props.theme.middleGray};
   border-radius: 3px;
   overflow: hidden;
+  margin-bottom: 100px;
 `;
 
 const TableHeader = styled.thead`
@@ -102,7 +85,9 @@ const Row = styled.tr`
 
   td {
     padding: 15px;
-    text-align: center;
+    &:first-child {
+      padding-left: 30px;
+    }
     &:nth-child(2),
     &:nth-child(3) {
       text-align: right;
@@ -110,6 +95,18 @@ const Row = styled.tr`
         content: ' 원';
       }
     }
+    &:last-child {
+      text-align: center;
+    }
   }
 `;
-export default ResultListBox;
+
+const mapStateToPtops = (state, props) => {
+  const { ids, entites } = state;
+  return {
+    ids,
+    entites,
+  };
+};
+
+export default connect(mapStateToPtops)(ResultListBox);

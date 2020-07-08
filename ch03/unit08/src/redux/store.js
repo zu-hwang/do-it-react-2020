@@ -4,11 +4,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 // 리듀서 불러오기
-import rootReducer from './reducer';
+import reducer from './reducer';
 
+console.log('스토어');
 const store = createStore(
-  rootReducer,
-  {},
+  reducer,
   composeWithDevTools(applyMiddleware(logger, thunk))
 );
 
