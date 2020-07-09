@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LabelInput = ({ id, name, value, onChange, readOnly, error }) => {
+const LabelInput = ({ id, name, value, onChange, readOnly }) => {
   return (
     <FormUnitBox>
       <Label htmlFor={id}>{name}</Label>

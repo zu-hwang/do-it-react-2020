@@ -11,7 +11,7 @@ const Layout = ({ children, setModalMode, modalMode }) => {
   console.log(modalMode);
   return (
     <>
-      <Modal mode={modalMode}></Modal>
+      {modalMode === '' ? '' : <Modal mode={modalMode}></Modal>}
       <Container>
         <GBN setModalMode={setModalMode} />
         {children}
