@@ -9,7 +9,7 @@ const initState = {
   entites: {},
   searchIds: [],
   searchEntites: {},
-  modalMode: '구매',
+  modalMode: '',
 };
 
 console.log('리듀서');
